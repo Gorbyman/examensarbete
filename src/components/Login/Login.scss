@@ -1,0 +1,28 @@
+$white: rgb(219, 219, 219);
+
+.body-area {
+
+  background-image: url("../../images/background.jpg");
+  background-size: cover;
+  height: 100vh;
+  position: relative;
+
+  h1, p {
+    text-align: center;
+    color: white;
+  }
+
+  .msg-area {
+    position: absolute;
+    top: 17%;
+    left: 1%;
+  }
+
+  .overlay {
+    background: rgba(0, 0, 0, .4);
+    border-color: $white;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+}
