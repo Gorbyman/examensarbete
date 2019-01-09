@@ -1,4 +1,5 @@
 $white: rgb(219, 219, 219);
+$green: rgb(4, 131, 25);
 
 .body-area {
 
@@ -21,8 +22,13 @@ $white: rgb(219, 219, 219);
   .overlay {
     background: rgba(0, 0, 0, .4);
     border-color: $white;
+    border:1px solid rgba(0, 0, 0, .2);
     padding: 10px;
     border-radius: 5px;
+  }
+
+  .btn-start {
+    background-color: $green;
   }
 
 }
