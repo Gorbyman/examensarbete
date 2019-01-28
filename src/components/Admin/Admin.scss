@@ -1,0 +1,57 @@
+$white: rgb(219, 219, 219);
+$lightgreen: rgb(47, 199, 72);
+
+.admin-area {
+
+	background-image: url("../../images/question.jpg");
+	background-size: cover;
+	background-position: center;
+	position: relative;
+	min-height: 100vh;
+
+	.overlay {
+		background: rgba(18, 19, 20, 0.45);
+		border-color: $white;
+		border:1px solid rgba(0, 0, 0, .2);
+		padding: 30px;
+		border-radius: 5px;
+	  }
+
+	h1, h4 {
+		font-family: 'Coiny', cursive;
+	  }
+	
+	  p, .form-label {
+		font-family: 'PT Sans Caption', sans-serif;
+	  }
+
+	h1, h4, p, .form-label {
+		color: white;
+	}
+
+    .start-link {
+        text-decoration: none;
+    }
+
+	.btn-start {
+        padding: 20px;
+        background-color: rgb(250, 166, 69);
+        border-radius: 45px;
+    }
+    
+    .btn-submit {
+        cursor: pointer;
+    }
+
+    .btn-submit, .btn-added {
+        padding: 20px;
+        background-color: $lightgreen;
+        border-radius: 45px;
+    }
+
+    .error {
+        color: rgb(247, 82, 82);
+        background-color: #000;
+    }
+
+}

@@ -1,0 +1,73 @@
+$white: rgb(219, 219, 219);
+$lightgreen: rgb(47, 199, 72);
+
+.body-area {
+
+  background-image: url("../../images/background.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+
+  h1 {
+    text-align: center;
+  }
+
+  h1, h4 {
+    font-family: 'Coiny', cursive;
+  }
+
+  p {
+    font-family: 'PT Sans Caption', sans-serif;
+  }
+
+  h1, h4, p {
+    color: white;
+  }
+
+  .overlay {
+    background: rgba(24, 61, 29, 0.4);
+    border-color: $white;
+    border:1px solid rgba(0, 0, 0, .2);
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  .email-error {
+    border-color: red;
+  }
+
+  .small-error {
+    color: #fff;
+    background-color: #000;
+  }
+  
+  .btn-start {
+    cursor: pointer;
+  }
+
+  .btn-start, .btn-not-ready {
+    padding: 20px;
+    background-color: $lightgreen;
+    border-radius: 45px;
+  }
+
+  .btn-highscore {
+    padding: 20px;
+    background-color: rgb(250, 166, 69);
+    border-radius: 45px; 
+  }
+
+  .btn-md-highscore {
+    padding: 20px;
+    background-color: rgb(250, 166, 69);
+    border-radius: 45px; 
+    position: absolute;
+    top: 8%;
+    right: 5%;
+  }
+
+  .highscore-link-lg{
+    text-decoration: none;
+  }
+
+}

@@ -1,0 +1,59 @@
+$red: rgb(241, 62, 62);
+$lightgreen: rgb(47, 199, 72);
+
+.quiz-area {
+
+  	background-color: rgb(213, 241, 213);
+  	background-size: cover;
+  	height: 100vh;
+	position: relative;
+
+	h4, .card-title {
+		font-family: 'Coiny', cursive;
+	  }
+	
+	  .card-text {
+		font-family: 'PT Sans Caption', sans-serif;
+	  }
+
+  	.qst-area {
+		position: absolute;
+		top: 10%;
+	}
+
+	.card-area {
+		border: 15px solid rgb(161, 226, 169);
+		background-color: rgb(240, 240, 240);
+		z-index: 2;
+	}
+
+	.card-image {
+		max-height: 55vh;
+	}
+
+	.btn-yes, .btn-no {
+		padding: 15px;
+		border-radius: 45px; 
+		width: 40%;
+		cursor: pointer;
+	}
+
+	.btn-yes {
+		background-color: $lightgreen;
+		float: left;
+	}
+
+	.btn-no {
+		background-color: $red;
+		float: right;
+	}
+
+	.background {
+		position: absolute;
+		top: 20%;
+		height: 300px;
+		background-image: url("../../images/background.jpg");
+		background-size: cover;
+		z-index: 1;
+	}
+}

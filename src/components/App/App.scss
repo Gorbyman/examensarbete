@@ -1,0 +1,22 @@
+.App {
+  min-height: 100vh;
+
+  textarea:hover, 
+  input:hover, 
+  textarea:active, 
+  input:active, 
+  textarea:focus, 
+  input:focus,
+  button:focus,
+  button:active,
+  button:hover,
+  label:focus,
+  .btn:active,
+  .btn.active
+  {
+      outline:0px !important;
+      -webkit-appearance:none;
+      box-shadow: inset 0 -1px 0 #ddd;
+  }
+
+}

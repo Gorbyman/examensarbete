@@ -1,0 +1,52 @@
+$lightgreen: rgb(47, 199, 72);
+$white: rgb(219, 219, 219);
+
+.summary-area {
+
+  background-image: url("../../images/summary.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  min-height: 100vh;
+
+  .overlay {
+    background: rgba(24, 39, 61, 0.45);
+    border-color: $white;
+    border:1px solid rgba(0, 0, 0, .2);
+    padding: 30px;
+    border-radius: 5px;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  h1, h2, h4 {
+    font-family: 'Coiny', cursive;
+  }
+
+  p {
+    font-family: 'PT Sans Caption', sans-serif;
+  }
+
+  h1, h2, h4, p {
+    color: white;
+  }
+
+  .btn-mail {
+    padding: 20px;
+    background-color: $lightgreen;
+    border-radius: 45px; 
+    cursor: pointer;
+  }
+
+  .btn-highscore {
+    padding: 20px;
+    background-color: rgb(250, 166, 69);
+    border-radius: 45px; 
+  }
+
+  .highscore-link{
+    text-decoration: none;
+  }
+}
