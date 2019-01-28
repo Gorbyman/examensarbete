@@ -39,10 +39,9 @@ app.use(express.json());
 app.use(session);
 
 app.post('/addUser', async (req, res) => {
-  console.log('i adduser: ', req.body.email);
+
   const emailResult = await User.findOne({ email: req.body.email });
   if (!emailResult) {
-    console.log('in i new user med ', req.body.email);
     new User({
       username: req.body.username,
       email: req.body.email,
@@ -50,19 +49,16 @@ app.post('/addUser', async (req, res) => {
     }).save().then(user => {
       req.session.userEmail = req.body.email;
       res.json({ success: true, user: user })
-      console.log('req.session.userEmail ', req.session.userEmail);
     })
   } else {
     res.json({ success: false, emailResult: emailResult });
   }
-  console.log('nu är du här och fixar i adduser: ', req.session.userEmail);
 });
 
 app.get('/isUserRegistered', async (req, res) => {
   let result = await User.findOne( { email: req.session.userEmail } )
     .then(user => {
       if (user) {
-        console.log('yes här nu', user.username, user.email, user.questNr);
         res.json({ loggedIn: true, name: user.username, mail: user.email, currentQuestNr: user.questNr });
       } else {
         res.json({ loggedIn: false })
@@ -70,7 +66,6 @@ app.get('/isUserRegistered', async (req, res) => {
     }).catch(err => {
       console.log("login err", err);
     })
-    console.log('resultat i isuserregistered: ', result);
 });
 
 app.post('/addQuestion', async (req, res) => {
@@ -129,13 +124,19 @@ app.post('/result', async (req, res) => {
     }
   });
 
+
+  let content = '';
+  for(let tip of req.body.tips){
+    content += '<li>' + tip + '</li>';
+  } 
+
   let mailOptions = {
     from: '"Klimatsmart"<noreply@klimatsmart.se',
     to: `${req.body.mail}`,
     subject: 'Tack för din medverkan!',
     html: `
      <h2>Här är resultatet efter din medverkan i "Hur klimatsmart är du?</h2>
-     <p>${req.body.tips}</p>
+     <ul>${content}</ul>
      <p>Vi tackar för din medverkan!</p>
      `
   };

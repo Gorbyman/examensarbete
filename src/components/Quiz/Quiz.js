@@ -49,21 +49,21 @@ import './Quiz.scss';
     }
     if(this.currentQstNr < (this.quizObj.length -1)){
       this.currentQstNr ++;
+
       this.currentQst = this.quizObj[this.currentQstNr];
-      console.log(this.currentQst.imgPath)
-      fetch(`/api/updateQuestNr/${this.props.userStore.currentUserMail}`, {
-        method: 'PUT',
-        body: JSON.stringify({
-          questNr: this.currentQstNr
-        }),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
-        .then(res => res.json())
-        .catch(err => {
-          console.log(err);
-        })
+      // fetch(`/api/updateQuestNr/${this.props.userStore.currentUserMail}`, {
+      //   method: 'PUT',
+      //   body: JSON.stringify({
+      //     questNr: this.currentQstNr
+      //   }),
+      //   headers: {
+      //     'Content-Type': 'application/json'
+      //   }
+      // })
+      //   .then(res => res.json())
+      //   .catch(err => {
+      //     console.log(err);
+      //   })
 
     }
     else {
