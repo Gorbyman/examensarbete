@@ -20,8 +20,9 @@
 							</Input>
 						</FormGroup>
 						<FormGroup>
-							<Label className="form-label" for="questionText">Frågans innehåll <span className="small">(här fyller du i frågan)</span>:</Label>
-							<Input tabIndex="3" type="textarea" name="text" id="questionText" value={this.questionText} onChange={e => this.questionTextChange(e)} />
+							<Label className="form-label" for="questionText">Frågans innehåll <span className="small">(här fyller du i frågan, max 65 tecken)</span>:</Label>
+							<Input tabIndex="3" type="textarea" maxLength="65" name="text" id="questionText" value={this.questionText} onChange={e => this.questionTextChange(e)} />
+							<p className="small mt-1 float-right">Antal tecken kvar: {this.maxCharacters - this.questionText.length} / {this.maxCharacters}</p>
 							{this.questError && 
 								<p className="error mt-1 text-center">Du måste fylla i en fråga</p>
 							}
