@@ -1,1 +1,0 @@
-<DOMRoute {...this.propsModded}/>

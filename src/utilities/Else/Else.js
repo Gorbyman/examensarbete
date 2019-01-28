@@ -1,1 +1,0 @@
-export default class Else extends Component {}
