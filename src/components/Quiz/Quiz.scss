@@ -1,5 +1,6 @@
 $red: rgb(241, 62, 62);
 $lightgreen: rgb(47, 199, 72);
+$white: rgb(219, 219, 219);
 
 .quiz-area {
 
@@ -8,24 +9,71 @@ $lightgreen: rgb(47, 199, 72);
   	height: 100vh;
 	position: relative;
 
-	h4, .card-title {
+	h4 {
 		font-family: 'Coiny', cursive;
+		color: $white;
+		font-size: 5vw;
 	  }
 	
+	.card-title {
+		text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+	}
+
 	  .card-text {
 		font-family: 'PT Sans Caption', sans-serif;
+		color: $white;
+		font-size: 3vw;
+		padding: 10px;
 	  }
 
-  	.qst-area {
-		position: absolute;
-		top: 10%;
-	}
+	  .text-overlay {
+			background: rgba(24, 39, 61, 0.55);
+			border-color: $white;
+			border:1px solid rgba(0, 0, 0, .2);
+			border-radius: 5px;
+			position: absolute;
+			top: 35%;
+			margin-left: auto;
+			margin-right: auto;
+			left: 0;
+			right: 0;
+			width: 90%;
+	  }
+
+		.qst-area {
+			position: absolute;
+			top: 10%;
+		}
 
 	.card-area {
 		border: 15px solid rgb(161, 226, 169);
 		background-color: rgb(240, 240, 240);
 		z-index: 2;
 	}
+
+	.image-area {
+		position: absolute;
+		top: 10%;
+		z-index: 2;
+		width: 50vw;
+		height: 80vh;
+		margin-left: auto;
+		margin-right: auto;
+		left: 0;
+		right: 0;
+		background-size: cover;
+		background-position: center;
+	}
+
+	.overlay {
+		background: rgba(24, 39, 61, 0.25);
+		border-color: $white;
+		border:1px solid rgba(0, 0, 0, .2);
+		padding: 30px;
+		border-radius: 5px;
+		width: 100%;
+		height: 100%;
+	  }
 
 	.card-image {
 		max-height: 55vh;
@@ -34,18 +82,23 @@ $lightgreen: rgb(47, 199, 72);
 	.btn-yes, .btn-no {
 		padding: 15px;
 		border-radius: 45px; 
-		width: 40%;
+		width: 35%;
 		cursor: pointer;
+		font-size: 4vw;
 	}
 
 	.btn-yes {
 		background-color: $lightgreen;
-		float: left;
+		position: absolute;
+		bottom: 5%;
+		left: 5%;
 	}
 
 	.btn-no {
 		background-color: $red;
-		float: right;
+		position: absolute;
+		bottom: 5%;
+		right: 5%;
 	}
 
 	.background {

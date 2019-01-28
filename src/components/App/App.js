@@ -38,7 +38,7 @@ import './App.scss';
 	// {
 	// 	number: 5,
 	// 	imgPath: '/images/quiz-images/markings.jpg',
-	// 	text: 'Är detta hållbarhetsmärkning för odlade fisk- och skaldjursprodukter och svanen-märket?',
+	// 	text: 'Är detta märkning för odlade fisk- och skaldjursprodukter och svanen-märket?',
 	// 	weight: 'light',
 	// 	correctAnswer: 'no',
 	// 	tip: 'Det finns en mängd olika märkningar för att guida dina val vid inköp. Kolla upp vad de betyder på miljomarkningar.se så du kan göra dina val därefter.'
