@@ -38,8 +38,19 @@ app.use(express.json());
 
 app.use(session);
 
-app.post('/addUser', async (req, res) => {
+const multer = require('multer');
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'public/images/quiz-images')
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.originalname + '-' + Date.now() + '.' + file.mimetype.split('image/')[1])
+  }
+});
+const upload = multer({ storage: storage });
 
+
+app.post('/addUser', async (req, res) => {
   const emailResult = await User.findOne({ email: req.body.email });
   if (!emailResult) {
     new User({
@@ -85,9 +96,41 @@ app.post('/addQuestion', async (req, res) => {
 app.put('/updateQuestion/:_id', async (req, res) => {
   let updateResult = await Question.findOneAndUpdate(
     { number: req.params._id },
-    { $set: { text: req.body.text, weight: req.body.weight, correctAnswer: req.body.correctAnswer, tip: req.body.tip, imgPath: undefined } }
+    { $set: { text: req.body.text, weight: req.body.weight, correctAnswer: req.body.correctAnswer, /*tip: req.body.tip, imgPath: undefined } }**/
+    tip: req.body.tip } }
   )
 })
+
+//
+app.post('/upload/:_id', upload.single('file'), async (req, res) => {
+  let filePath = req.file.path.split('quiz-images')[1];
+  filePath = filePath.replace('\\', '/');
+  let imageUpdateResult = await Question.findOneAndUpdate(
+    { number: req.params._id },
+    { $set: { imgPath: '/images/quiz-images' + filePath } }
+  )
+      let joOptions = {};
+      // jo.rotate(req.file.path, joOptions, function (error, buffer, orientation) {
+      //   if (error) {
+      //     console.log('An error occurred when rotating the file: ' + error.message);
+      //     return;
+      //   }
+      //   let pathToFile = req.file.path;
+      //   // upload the buffer to s3, save to disk or more ...
+      //   fs.writeFile(req.file.path, buffer, function (err) {
+      //     if (err) {
+      //       return console.log(err, pathToFile);
+      //     }
+      //     console.log("The file was saved!", pathToFile);
+      //   });
+      // });
+      // user.save().then(user => {
+      //   res.json({ path: user.image })
+      // })
+
+    // });
+});
+//
 
 app.put('/updateQuestNr/:_id', async (req, res) => {
   let result = await User.findOneAndUpdate(

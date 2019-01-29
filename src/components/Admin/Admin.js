@@ -63,7 +63,6 @@ import './Admin.scss';
       this.image = formData;
       this.areAllEmpty = false;
     }
-    console.log(this.imgPath, this.image);
   }
 
   submitQuest(e){
@@ -78,6 +77,15 @@ import './Admin.scss';
       this.tipError = true;
       return;
     };
+
+    fetch(`/api/upload/${this.numberSelected}`, {
+      method: 'POST',
+      body: this.image
+    })
+      .then(res => res.json())
+      .catch(err => {
+        console.log(err);
+      })
 
     fetch(`/api/updateQuestion/${this.numberSelected}`, {
       method: 'PUT',
