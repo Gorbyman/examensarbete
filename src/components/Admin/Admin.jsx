@@ -7,9 +7,9 @@
 				</Link>
 			</Col>
       <Col className="mt-3 overlay" xs={{ size: 10, offset: 1 }}>
-      <h1 className="text-center">Uppdatera frågor</h1>
-			<p className="text-center">Fyll i samtliga fält och välj vilket nummer frågan ska ha.</p>
+      <h1 className="text-center">Ändra frågor</h1>
 				<Col xs={{ size: 10, offset: 1 }} sm={{ size: 6, offset: 3 }} md={{ size: 8, offset: 2 }} className="mt-4">
+					<p className="">Här kan du ändra frågorna genom att fylla i samtliga fält och välj vilket nummer frågan ska ha. Observera att den gamla frågan med det numret kommer att försvinna.</p>
 					<Form>
 						<FormGroup>
 							<Label className="form-label" for="numberSelect">Fråga <span className="small">(välj vilket nummer frågan ska ha)</span>:</Label>
@@ -51,6 +51,23 @@
 								<option value='no'>Nej</option>
 							</Input>
 						</FormGroup>
+						
+						<FormGroup>
+							<div className="image-upload">
+								<div className="image-edit">
+									<Label className="form-label" for="setImage">Ladda upp en bild till frågan <span>(max 1 mb stor)</span></Label>
+									<Input
+										type="file"
+										name="image"
+										id="setImage"
+										placeholder="image"
+										autoComplete="off"
+										onChange={e => this.imageChange(e)}
+									/>
+								</div>
+							</div>
+						</FormGroup>
+
 						{this.updateSuccess && 
 							<h4 className="btn-added float-left mt-3">Tillagd</h4>
 						}

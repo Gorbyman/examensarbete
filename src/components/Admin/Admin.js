@@ -13,6 +13,8 @@ import './Admin.scss';
   @observable selectedNumber = 1;
   @observable updateSuccess = false;
   @observable maxCharacters = 65;
+  @observable imgPath = '';
+  @observable image = '';
 
   async start(){
     this.numberArr = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
@@ -45,6 +47,23 @@ import './Admin.scss';
     if (e.charCode === 32 || 13){
       this.submitQuest();
     }
+  }
+
+  imageChange = (e) => {
+    if (e.target.files && e.target.files[0]) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        this.imgPath = e.target.result;
+      };
+      reader.readAsDataURL(e.target.files[0]);
+
+      const formData = new FormData();
+      // formData.append('id', this.props.userStore.user._id);
+      formData.append('file', e.target.files[0]);
+      this.image = formData;
+      this.areAllEmpty = false;
+    }
+    console.log(this.imgPath, this.image);
   }
 
   submitQuest(e){
