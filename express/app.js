@@ -57,6 +57,11 @@ const upload = multer({
 
 app.post('/addUser', async (req, res) => {
   const emailResult = await User.findOne({ email: req.body.email });
+  if(emailResult && (emailResult.email == 'johan_anderberg79@hotmail.com') && (emailResult.username == 'hej')){
+    console.log('träff');
+    // skicka tillbaka att det är admin som är inskrivet så frontend kan redirekta till admin!
+    return;
+  }
   if (!emailResult) {
     new User({
       username: req.body.username,

@@ -106,6 +106,7 @@ import './Quiz.scss';
     }
     this.props.userStore.setScore(averageScore, score, totalScore);
     score = parseInt(score, 10);
+    if(this.props.userStore.currentUserMail){
     fetch(`/api/users/${this.props.userStore.currentUserMail}`, {
       method: 'PUT',
       body: JSON.stringify({
@@ -119,6 +120,7 @@ import './Quiz.scss';
       .catch(err => {
         console.log(err);
       })
+    };
   }
 
 }
