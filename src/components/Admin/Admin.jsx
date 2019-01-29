@@ -51,12 +51,12 @@
 								<option value='no'>Nej</option>
 							</Input>
 						</FormGroup>
-						
 						<FormGroup>
 							<div className="image-upload">
 								<div className="image-edit">
 									<Label className="form-label" for="setImage">Ladda upp en bild till frågan <span>(max 1 mb stor)</span></Label>
 									<Input
+										tabIndex="7"
 										type="file"
 										name="image"
 										id="setImage"
@@ -66,12 +66,14 @@
 									/>
 								</div>
 							</div>
+							{this.imageError && 
+								<p className="error mt-1 text-center">Du måste ladda upp en bild</p>
+							}
 						</FormGroup>
-
 						{this.updateSuccess && 
 							<h4 className="btn-added float-left mt-3">Tillagd</h4>
 						}
-						<h4 tabIndex="7" className="btn-submit float-right mt-3" onKeyPress={e => this.keyPress(e)} onClick={e => this.submitQuest(e)}>Lägg till</h4>
+						<h4 tabIndex="8" className="btn-submit float-right mt-3" onKeyPress={e => this.keyPress(e)} onClick={e => this.submitQuest(e)}>Lägg till</h4>
 					</Form>
 				</Col>
       </Col>

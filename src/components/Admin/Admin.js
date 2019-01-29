@@ -7,6 +7,7 @@ import './Admin.scss';
   @observable questError = false;
   @observable tipText = '';
   @observable tipError = false;
+  @observable imageError = false;
   @observable numberSelected = 1;
   @observable weightSelected = 'light';
   @observable answerSelected = 'yes';
@@ -56,13 +57,12 @@ import './Admin.scss';
         this.imgPath = e.target.result;
       };
       reader.readAsDataURL(e.target.files[0]);
-
       const formData = new FormData();
-      // formData.append('id', this.props.userStore.user._id);
       formData.append('file', e.target.files[0]);
       this.image = formData;
       this.areAllEmpty = false;
     }
+    this.imageError = false;
   }
 
   submitQuest(e){
@@ -77,6 +77,10 @@ import './Admin.scss';
       this.tipError = true;
       return;
     };
+    if(!this.image){
+      this.imageError = true;
+      return;
+    }
 
     fetch(`/api/upload/${this.numberSelected}`, {
       method: 'POST',
