@@ -16,9 +16,9 @@
             <FormGroup>
               <Label for="email" className="sr-only">Email</Label>
               {!this.validEmail ?
-              <Input tabIndex="2" type="email" id="email" className="email-error" placeholder="Email" value={this.password} onChange={e => this.emailChange(e)} />
+              <Input tabIndex="2" type="email" id="email" className="email-error" placeholder="Email" value={this.email} onChange={e => this.emailChange(e)} />
               :
-              <Input tabIndex="2" type="email" id="email" placeholder="Email" value={this.password} onChange={e => this.emailChange(e)} />
+              <Input tabIndex="2" type="email" id="email" placeholder="Email" value={this.email} onChange={e => this.emailChange(e)} />
               }
               {!this.validEmail &&
               <p className="text-center small my-1 py-1 small-error">
