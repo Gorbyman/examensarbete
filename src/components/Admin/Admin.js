@@ -16,9 +16,25 @@ import './Admin.scss';
   @observable maxCharacters = 65;
   @observable imgPath = '';
   @observable image = '';
+  @observable admin = false;
 
   async start(){
     this.numberArr = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
+    await fetch('/api/checkIfAdmin/', {
+      credentials: 'include'
+    })
+      .then(res => res.json())
+      .then(res => {
+        if(res.admin){
+          this.admin = true;
+        }
+        else { 
+          this.admin = false;
+          this.props.history.push(`/`);
+        }
+      }).catch(err => {
+        console.log("err", err)
+      });
   }
 
   numberChange(e){

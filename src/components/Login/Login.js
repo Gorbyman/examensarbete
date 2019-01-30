@@ -33,7 +33,6 @@ import './Login.scss';
       .then(res=>res.json())
       .then(res => {
         if (res.admin) {
-          console.log('jepp du är admin');
           this.props.history.push(`/admin`);
           return;
         }

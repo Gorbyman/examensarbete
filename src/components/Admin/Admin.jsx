@@ -1,4 +1,5 @@
 <Fragment>
+	{this.admin ?
   <Container fluid={true} className="admin-area">
     <Row>
 			<Col className="mt-4" xs={{ size: 6, offset: 3 }}>
@@ -79,4 +80,6 @@
       </Col>
     </Row>
   </Container>
+	:
+	''}
 </Fragment>

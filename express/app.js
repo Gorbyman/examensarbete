@@ -58,9 +58,8 @@ const upload = multer({
 app.post('/addUser', async (req, res) => {
   const emailResult = await User.findOne({ email: req.body.email });
   if(emailResult && (emailResult.email == 'adminadmin@admin.admin') && (emailResult.username == 'admin')){
-    console.log('träff');
-    res.json({ admin: true})
-    // skicka tillbaka att det är admin som är inskrivet så frontend kan redirekta till admin!
+    req.session.admin = true;
+    res.json({ admin: true });
     return;
   }
   if (!emailResult) {
@@ -88,6 +87,15 @@ app.get('/isUserRegistered', async (req, res) => {
     }).catch(err => {
       console.log("login err", err);
     })
+});
+
+app.get('/checkIfAdmin', async (req, res) => {
+  if(req.session.admin){
+    res.json( { admin: true } );
+  }
+  else { 
+    res.json( { admin: false } );
+  };
 });
 
 app.post('/addQuestion', async (req, res) => {
