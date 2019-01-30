@@ -32,17 +32,24 @@ import './Login.scss';
       })
       .then(res=>res.json())
       .then(res => {
+        if (res.admin) {
+          console.log('jepp du är admin');
+          this.props.history.push(`/admin`);
+          return;
+        }
         if (res.success) {
-          console.log('nu är du här');
           this.props.userStore.setUserInfo(username, email);
+          this.props.history.push(`/quiz`);
         }
         else {
           this.props.userStore.unregisteredUser();
+          this.props.history.push(`/quiz`);
         }
       })
       .catch((err) => {
         console.log('error', err);
       });
+
   }
 
   keyPress(e) {
@@ -60,7 +67,6 @@ import './Login.scss';
     document.getElementById('username').value = '';
     this.username = '';
     this.email = '';
-    this.props.history.push(`/quiz`);
   }
 
 }

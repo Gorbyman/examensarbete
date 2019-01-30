@@ -57,8 +57,9 @@ const upload = multer({
 
 app.post('/addUser', async (req, res) => {
   const emailResult = await User.findOne({ email: req.body.email });
-  if(emailResult && (emailResult.email == 'johan_anderberg79@hotmail.com') && (emailResult.username == 'hej')){
+  if(emailResult && (emailResult.email == 'adminadmin@admin.admin') && (emailResult.username == 'admin')){
     console.log('träff');
+    res.json({ admin: true})
     // skicka tillbaka att det är admin som är inskrivet så frontend kan redirekta till admin!
     return;
   }
@@ -97,6 +98,17 @@ app.post('/addQuestion', async (req, res) => {
     weight: req.body.weight,
     correctAnswer: req.body.correctAnswer,
     tip: req.body.tip
+  }).save()
+    .then(
+      res.json({ success: true})
+    )
+});
+
+app.post('/addAllUsers', async (req, res) => {
+  new User({
+    username: req.body.username,
+    email: req.body.email,
+    points: req.body.points
   }).save()
     .then(
       res.json({ success: true})

@@ -13,11 +13,9 @@ class UserStore {
   }
 
   setUserInfo(name, mail){
-    console.log(name, mail);
     this.currentUserName = name.name || name;
     this.currentUserMail = mail || name.mail;
     this.isLoggedIn = true;
-    console.log(this.currentUserName, this.currentUserMail, this.isLoggedIn);
   }
 
   unregisteredUser(){
