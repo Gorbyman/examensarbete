@@ -11,27 +11,58 @@ $white: rgb(219, 219, 219);
 	h4 {
 		font-family: 'Coiny', cursive;
 		color: $white;
-		font-size: 5vw;
+	}
+
+	h6 {
+		font-family: 'Coiny', cursive;
+		color: #000;
+		font-size: 2vw;
+		@media (max-width: 550px) {
+			font-size: 3vw;
+		}
+		@media (max-width: 450px) {
+			font-size: 3.5vw;
+		}
+		@media (max-width: 350px) {
+			font-size: 4vw;
+		}
 	}
 	
 	.card-title {
-		text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+		position: absolute;
+		top: 53%;
+		margin-left: auto;
+		margin-right: auto;
+		left: 0;
+		right: 0;
 	}
 
 	.card-text {
 		font-family: 'PT Sans Caption', sans-serif;
 		color: $white;
-		font-size: 3vw;
+		font-size: 1.7vw;
 		padding: 10px;
+		@media (max-width: 1050px) {
+			font-size: 2vw;
+		}
+		@media (max-width: 620px) {
+			font-size: 3vw;
+		}
+		@media (max-width: 400px) {
+			font-size: 4vw;
+		}
+		@media (max-width: 300px) {
+			font-size: 5vw;
+		}
 	}
 
 	.text-overlay {
+		position: absolute;
+		top: 59%;
 		background: rgba(24, 39, 61, 0.55);
 		border-color: $white;
 		border:1px solid rgba(0, 0, 0, .2);
 		border-radius: 5px;
-		position: absolute;
-		top: 35%;
 		margin-left: auto;
 		margin-right: auto;
 		left: 0;
@@ -41,21 +72,35 @@ $white: rgb(219, 219, 219);
 
 	.qst-area {
 		position: absolute;
-		top: 10%;
+		top: 3%;
+		height: 80vh;
 	}
 
 	.card-area {
-		border: 15px solid rgb(161, 226, 169);
-		background-color: rgb(240, 240, 240);
-		z-index: 2;
-	}
-
-	.image-area {
+		background-color: rgb(199, 199, 199);
 		position: absolute;
 		top: 10%;
 		z-index: 2;
-		width: 50vw;
+		width: 45vw;
+		margin-left: auto;
+		margin-right: auto;
+		left: 0;
+		right: 0;
+		@media (max-width: 850px) {
+			width: 50vw;
+		}
+		@media (max-width: 550px) {
+			width: 65vw;
+		}
+		@media (max-width: 400px) {
+			width: 85vw;
+		}
 		height: 80vh;
+	}
+
+	.image-area {
+		height: 50%;
+		width: 100%;
 		margin-left: auto;
 		margin-right: auto;
 		left: 0;
@@ -74,29 +119,37 @@ $white: rgb(219, 219, 219);
 		height: 100%;
 	}
 
-	.card-image {
-		max-height: 55vh;
-	}
-
 	.btn-yes, .btn-no {
 		padding: 15px;
 		border-radius: 45px; 
 		width: 35%;
 		cursor: pointer;
-		font-size: 4vw;
+		font-size: 2vw;
+		@media (max-width: 800px) {
+			font-size: 2.5vw;
+		}
+		@media (max-width: 600px) {
+			font-size: 3.5vw;
+		}
+		@media (max-width: 450px) {
+			font-size: 4.5vw;
+		}
+		@media (max-width: 300px) {
+			font-size: 5.5vw;
+		}
 	}
 
 	.btn-yes {
 		background-color: $lightgreen;
 		position: absolute;
-		bottom: 5%;
+		bottom: 3%;
 		left: 5%;
 	}
 
 	.btn-no {
 		background-color: $red;
 		position: absolute;
-		bottom: 5%;
+		bottom: 3%;
 		right: 5%;
 	}
 
