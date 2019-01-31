@@ -1,5 +1,4 @@
 <Fragment>
-{/* ska bara visas om frågorna är på max.length*/}
   <Container fluid={true} className="summary-area">
     <Row>
       <Col className="my-5 overlay" sm={{ size: 10, offset: 1 }} md={{ size: 8, offset: 2 }} lg={{ size: 6, offset: 3 }}>

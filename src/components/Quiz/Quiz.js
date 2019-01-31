@@ -8,25 +8,6 @@ import './Quiz.scss';
     let res = await fetch('/api/getQuestions')
     this.quizObj = await res.json();
     this.currentQst = this.quizObj[this.currentQstNr];
-    
-
-    // await fetch('/api/isUserRegistered/', {
-    //   credentials: 'include'
-    // })
-    //   .then(res => res.json())
-    //   .then(res => {
-    //     if (res.loggedIn) {
-    //       this.props.userStore.setUserInfo( { name: res.name, mail: res.mail } );
-    //         // this.currentQst = this.quizObj[res.currentQuestNr || 0];
-           
-    //         // this.currentQstNr = res.currentQuestNr || 0;
-    //        console.log(toJS(this.currentQst)  , ' och nummer ', this.currentQstNr, ' är inloggad? ', this.props.userStore.isLoggedIn);
-    //     }
-    //     else { console.log("login false") }
-    //   }).catch(err => {
-    //     console.log("err", err)
-    //   });
-
   }
 
   keyPressYes(e){
@@ -49,22 +30,7 @@ import './Quiz.scss';
     }
     if(this.currentQstNr < (this.quizObj.length -1)){
       this.currentQstNr ++;
-
       this.currentQst = this.quizObj[this.currentQstNr];
-      // fetch(`/api/updateQuestNr/${this.props.userStore.currentUserMail}`, {
-      //   method: 'PUT',
-      //   body: JSON.stringify({
-      //     questNr: this.currentQstNr
-      //   }),
-      //   headers: {
-      //     'Content-Type': 'application/json'
-      //   }
-      // })
-      //   .then(res => res.json())
-      //   .catch(err => {
-      //     console.log(err);
-      //   })
-
     }
     else {
       this.props.history.push({
@@ -80,7 +46,6 @@ import './Quiz.scss';
     let mediumPoint = 30;
     let heavyPoint = 50;
     let averageScore = mediumPoint * this.quizObj.length;
-
     for(let points of this.quizObj){
       if(points.weight === 'light'){
         score += lightPoint;

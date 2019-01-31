@@ -76,18 +76,19 @@ app.post('/addUser', async (req, res) => {
   }
 });
 
-app.get('/isUserRegistered', async (req, res) => {
-  let result = await User.findOne( { email: req.session.userEmail } )
-    .then(user => {
-      if (user) {
-        res.json({ loggedIn: true, name: user.username, mail: user.email, currentQuestNr: user.questNr });
-      } else {
-        res.json({ loggedIn: false })
-      }
-    }).catch(err => {
-      console.log("login err", err);
-    })
-});
+// not in use, for checking if a user is active
+// app.get('/isUserRegistered', async (req, res) => {
+//   let result = await User.findOne( { email: req.session.userEmail } )
+//     .then(user => {
+//       if (user) {
+//         res.json({ loggedIn: true, name: user.username, mail: user.email, currentQuestNr: user.questNr });
+//       } else {
+//         res.json({ loggedIn: false })
+//       }
+//     }).catch(err => {
+//       console.log("login err", err);
+//     })
+// });
 
 app.get('/checkIfAdmin', async (req, res) => {
   if(req.session.admin){
@@ -98,30 +99,32 @@ app.get('/checkIfAdmin', async (req, res) => {
   };
 });
 
-app.post('/addQuestion', async (req, res) => {
-  new Question({
-    number: req.body.number,
-    imgPath: req.body.imgPath,
-    text: req.body.text,
-    weight: req.body.weight,
-    correctAnswer: req.body.correctAnswer,
-    tip: req.body.tip
-  }).save()
-    .then(
-      res.json({ success: true})
-    )
-});
+// not in use, for updating questions from an array
+// app.post('/addQuestion', async (req, res) => {
+//   new Question({
+//     number: req.body.number,
+//     imgPath: req.body.imgPath,
+//     text: req.body.text,
+//     weight: req.body.weight,
+//     correctAnswer: req.body.correctAnswer,
+//     tip: req.body.tip
+//   }).save()
+//     .then(
+//       res.json({ success: true})
+//     )
+// });
 
-app.post('/addAllUsers', async (req, res) => {
-  new User({
-    username: req.body.username,
-    email: req.body.email,
-    points: req.body.points
-  }).save()
-    .then(
-      res.json({ success: true})
-    )
-});
+// not in use, for updating users from an array
+// app.post('/addAllUsers', async (req, res) => {
+//   new User({
+//     username: req.body.username,
+//     email: req.body.email,
+//     points: req.body.points
+//   }).save()
+//     .then(
+//       res.json({ success: true})
+//     )
+// });
 
 app.put('/updateQuestion/:_id', async (req, res) => {
   let updateResult = await Question.findOneAndUpdate(
@@ -149,12 +152,13 @@ app.post('/upload/:_id', upload.single('file'), async (req, res) => {
   )
 });
 
-app.put('/updateQuestNr/:_id', async (req, res) => {
-  let result = await User.findOneAndUpdate(
-    { email: req.params._id },
-    { $set: { questNr: req.body.questNr } }
-  );
-});
+// not in use, for updating users current quest number
+// app.put('/updateQuestNr/:_id', async (req, res) => {
+//   let result = await User.findOneAndUpdate(
+//     { email: req.params._id },
+//     { $set: { questNr: req.body.questNr } }
+//   );
+// });
 
 app.put('/users/:_id', async (req, res) => {
   let result = await User.findOneAndUpdate(

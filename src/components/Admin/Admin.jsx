@@ -2,11 +2,11 @@
 	{this.admin ?
   <Container fluid={true} className="admin-area">
     <Row>
-			<Col className="mt-4" xs={{ size: 6, offset: 3 }}>
-				<Link tabIndex="-1" className="start-link" to="/" >
-					<h4 tabIndex="1" className="btn-start text-center">Till Startsida</h4>
-				</Link>
-			</Col>
+		<Col className="mt-4" xs={{ size: 6, offset: 3 }}>
+			<Link tabIndex="-1" className="start-link" to="/" >
+				<h4 tabIndex="1" className="btn-start text-center">Till Startsida</h4>
+			</Link>
+		</Col>
       <Col className="mt-3 overlay" xs={{ size: 10, offset: 1 }}>
       <h1 className="text-center">Ändra frågor</h1>
 				<Col xs={{ size: 10, offset: 1 }} sm={{ size: 6, offset: 3 }} md={{ size: 8, offset: 2 }} className="mt-4">
